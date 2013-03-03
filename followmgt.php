@@ -35,6 +35,7 @@
 			exit();		
 		}
 		function carryOn(){
+			// Sets the tumblroauth to make requests.
 			$this->autho = new TumblrOAuth(APP_KEY, APP_SECRET, $_SESSION['token']['oauth_token'], $_SESSION['token']['oauth_token_secret']);
 			
 			return true;
@@ -62,6 +63,7 @@
 			return true;
 		}
 		function getBlogData(){
+			// Returns the user name.
 			$userinfo = $this->autho->get('http://api.tumblr.com/v2/user/info');
 			if (200 == $this->autho->http_code) {
 				$screen_name = $userinfo->response->user->name;
@@ -72,23 +74,19 @@
 			}
 		}
 		function getFollowers(){
+			// Returns an array of the blogs followers.
 			$userinfo = $this->autho->get('http://api.tumblr.com/v2/user/info');
 			if (200 == $this->autho->http_code) {
 				$screen_name = $userinfo->response->user->name;
 				$blog_url = $screen_name.'.tumblr.com';
-				//echo $screen_name;
-				//echo $blog_url;
 			} else {
 				die('Unable to get info.');
 			}
-			//echo $screen_name;
 			$furl = 'http://api.tumblr.com/v2/blog/'.$blog_url.'/followers';
-			//echo $furl;
 			$params = array('limit' => 20, 'offset' => 0);
 			$res = array();
 			$followers = $this->autho->get($furl, $params);
 			if (200 == $this->autho->http_code) {
-				//header('Location: index.php');
 				$total = $followers->response->total_users;
 			} else {
 				die('Unable to get followers.');
@@ -110,6 +108,7 @@
 			return $res;
 		}
 		function getFollowing(){
+			// Returns an array of the blogs following the users blog.
 			$furl = 'http://api.tumblr.com/v2/user/following';
 			$params = array('limit' => 20, 'offset' => 0);
 			$res = array();
@@ -135,6 +134,7 @@
 			return $res;
 		}
 		function unfollow($user) {
+			// Unfollows the blog given as a parameter.
 			$furl = 'http://api.tumblr.com/v2/user/unfollow';
 			$params = array('url' => $user);
 			$res = $this->autho->post($furl, $params);
@@ -149,6 +149,7 @@
 			}
 		}
 		function follow($user) {
+			// Follows the blog given as a parameter.
 			$furl = 'http://api.tumblr.com/v2/user/follow';
 			$params = array('url' => $user);
 			$res = $this->autho->post($furl, $params);

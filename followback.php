@@ -59,7 +59,6 @@
 				border-radius: 4px;
 				color: white;
 				text-align: center;
-				text-shadow:rgba(0, 0, 0, 0.18);
 				font-size: 12px;
 				height: 14px;
 				width: 95px;
@@ -72,13 +71,12 @@
       			}
 			.follow {
 				background-color: rgb(158,158,157);
-				border-color: rgba(150, 150, 150);
+				border-color: rgb(150, 150, 150);
         			border-style: solid;
 				border-width: 2px;
 				border-radius: 4px;
 				color: white;
 				text-align: center;
-				text-shadow:rgba(0, 0, 0, 0.18);
 				font-size: 12px;
 				height: 14px;
 				width: 95px;
@@ -89,6 +87,43 @@
         			cursor: pointer;
 				opacity: 0.6;
       			}
+			.unfollow_n {
+				background-color: rgb(158,158,157);
+				border-color: rgb(150,150,150);
+        			border-style: solid;
+				border-width: 2px;
+				border-radius: 4px;
+				color: white;
+				text-align: center;
+				font-size: 12px;
+				height: 14px;
+				width: 95px;
+				opacity: 0.8;
+				visibility: hidden;
+      			}
+      			.unfollow_n:hover {
+        			cursor: pointer;
+				opacity: 0.6;
+      			}
+			.follow_n {
+				background-color: rgb(158,158,157);
+				border-color: rgb(150, 150, 150);
+        			border-style: solid;
+				border-width: 2px;
+				border-radius: 4px;
+				color: white;
+				text-align: center;
+				font-size: 12px;
+				height: 14px;
+				width: 95px;
+				opacity: 0.8;
+				visibility: hidden;	
+      			}
+			.follow_n:hover {
+        			cursor: pointer;
+				opacity: 0.6;
+      			}
+
 			h2 {
 				position: relative;
 				margin-left: 39px;
@@ -129,9 +164,12 @@
 	<body>
 		<span style="height: 100px;"></span>
 		<div class="logout"><b>Log Out</b></div>
-		<h1 style="background-color: #385773; height: 173px;>
-			<div style="margin-left: 100px;"><img src="http://felisatti.com.ar/anita/followMGT/logo.png"></div>
-			<span style="color: white; margin-left:100px;"><span style="font-family: Lucida Sans Unicode;">Welcome, <? echo $user_name; ?>!</span></span>
+		<h1 style="background-color: #385773; height: 173px;">
+			<div style="margin-left: 100px;">
+				<img src="http://felisatti.com.ar/anita/followMGT/logo.png">
+				<span style="color: white; margin-left:50px;"><span style="font-family: Lucida Sans Unicode;">Welcome, <? echo $user_name; ?>!</span></span>
+			</div>
+			
 		</h1>
 		<span style="font-family: Lucida Sans Unicode; height: 100px;"> </span>
 		<div style="background-color: rgb(44,71,98); margin-bottom: 100px; margin-left: 126px; margin-right: 126px;" class="extcontainer">
